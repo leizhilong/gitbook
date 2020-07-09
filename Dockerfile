@@ -6,7 +6,8 @@ ARG VERSION=3.2.3
 
 LABEL version=$VERSION
 
-RUN apt-get install -y build-essential calibre && \
+RUN apt-get update && \
+	apt-get install -y build-essential calibre && \
 	npm install --global gitbook-cli gitbook-pdf && \
 	gitbook fetch ${VERSION} && \
 	rm -rf /tmp/* && apt-get clean

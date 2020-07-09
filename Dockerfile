@@ -8,7 +8,6 @@ LABEL version=$VERSION
 
 RUN npm install --global gitbook-cli &&\
 	gitbook fetch ${VERSION} &&\
-	npm cache clear &&\
 	rm -rf /tmp/*
 
 WORKDIR /srv/gitbook

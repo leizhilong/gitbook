@@ -8,9 +8,14 @@ LABEL version=$VERSION
 
 RUN apt-get update && \
 	apt-get install -y build-essential calibre && \
-	npm install --global gitbook-cli && \
+	&& apt-get clean
+
+RUN npm install --global gitbook-cli && \
 	gitbook fetch ${VERSION} && \
-	rm -rf /tmp/* && apt-get clean
+	rm -rf /tmp/* && \
+	# fix isse:https://github.com/GitbookIO/gitbook-cli/issues/55
+	sed -i 's/confirm: .*$/confirm: false/g' ~/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js && \
+	cat ~/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js | grep confirm
 
 WORKDIR /srv/gitbook
 

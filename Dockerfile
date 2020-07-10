@@ -14,6 +14,7 @@ RUN npm install --global gitbook-cli && \
 	gitbook fetch ${VERSION} && \
 	rm -rf /tmp/*
 
+# fix issue: https://github.com/GitbookIO/gitbook-cli/issues/55
 COPY copyPluginAssets.js /root/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js
 
 WORKDIR /srv/gitbook

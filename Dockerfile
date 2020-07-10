@@ -8,7 +8,7 @@ LABEL version=$VERSION
 
 RUN apt-get update && \
 	apt-get install -y build-essential calibre && \
-	&& apt-get clean
+	apt-get clean
 
 RUN npm install --global gitbook-cli && \
 	gitbook fetch ${VERSION} && \

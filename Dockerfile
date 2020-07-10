@@ -9,8 +9,8 @@ LABEL version=$VERSION
 RUN apt-get update && \
 	apt-get install -y build-essential calibre && \
 	apt-get clean && \
-	npm install -g puppeteer --unsafe-perm=true && \
-	npm install -g gitbook-cli svgexport && \
+	npm install -g svgexport --unsafe-perm=true && \
+	npm install -g gitbook-cli && \
 	gitbook fetch ${VERSION} && \
 	rm -rf /tmp/* && \
 	# fix issue https://github.com/GitbookIO/gitbook-cli/issues/55

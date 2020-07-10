@@ -12,10 +12,9 @@ RUN apt-get update && \
 
 RUN npm install --global gitbook-cli && \
 	gitbook fetch ${VERSION} && \
-	rm -rf /tmp/* && \
-	# fix isse:https://github.com/GitbookIO/gitbook-cli/issues/55
-	sed -i 's/confirm: .*$/confirm: false/g' ~/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js && \
-	cat ~/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js | grep confirm
+	rm -rf /tmp/*
+
+COPY copyPluginAssets.js /root/.gitbook/versions/${VERSION}/lib/output/website/copyPluginAssets.js
 
 WORKDIR /srv/gitbook
 

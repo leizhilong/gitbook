@@ -1,10 +1,10 @@
-# Gitbook Dokcer Image
+# Gitbook Docker Image
 
 ![build status](https://github.com/leizhilong/gitbook/workflows/docker-publish/badge.svg)
 
 Reserved legacy gitbook image in case that it might not be available someday in the future.
 
-- Runs as **Docker container** so you don't have to mess with node environment and gitbook versions.
+- Run as **Docker container** so you don't have to mess with node environment and gitbook versions.
 
 - Super easy to install with docker, type `docker pull leizhilong/gitbook` and you're good to go.
 
